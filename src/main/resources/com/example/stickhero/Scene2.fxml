@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="game_plane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="369.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero.Game_Controller">
+    <children>
+        <ImageView fitHeight="544.0" fitWidth="369.0">
+            <image>
+                <Image url="@bg.jpg" />
+            </image>
+        </ImageView>
+        <Rectangle fx:id="wall1" arcHeight="5.0" arcWidth="5.0" height="250.0" layoutX="-17.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="84.0" />
+        <Line fx:id="my_stick" layoutX="65.0" layoutY="335.0" strokeWidth="6.0" />
+        <Rectangle fx:id="wall2" arcHeight="5.0" arcWidth="5.0" height="250.0" layoutX="-17.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="50.0" x="350.0" />
+        <ImageView fx:id="hero_img1" fitHeight="36.0" fitWidth="52.0" layoutX="30.0" layoutY="303.0">
+            <image>
+                <Image url="@man.png" />
+            </image>
+        </ImageView>
+        <Rectangle fx:id="wall3" arcHeight="5.0" arcWidth="5.0" height="250.0" layoutX="-17.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="50.0" x="450.0" />
+        <Button fx:id="hero_button" layoutX="-1.0" layoutY="46.0" mnemonicParsing="false" onMousePressed="#mouse_dragged" onMouseReleased="#mouse_Released" opacity="0.0" prefHeight="471.0" prefWidth="370.0" />
+        <ImageView fx:id="cherry" fitHeight="36.0" fitWidth="35.0" layoutX="45.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" x="300.0" y="35.0">
+            <image>
+                <Image url="@cherry.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="jump_button" layoutX="101.0" layoutY="440.0" mnemonicParsing="false" onAction="#jump" opacity="0.76" prefHeight="36.0" prefWidth="70.0" text="Jump" textAlignment="CENTER" />
+        <Button layoutX="188.0" layoutY="440.0" mnemonicParsing="false" onAction="#flip" opacity="0.75" prefHeight="36.0" prefWidth="70.0" text="Flip" textAlignment="CENTER" />
+        <Group fx:id="Exit_group" layoutX="-7.0" layoutY="50.0" scaleX="0.98" visible="false">
+            <children>
+            <Button layoutX="5.0" layoutY="-9.0" mnemonicParsing="false" opacity="0.0" prefHeight="562.0" prefWidth="414.0" text="Button" />
+            <ImageView fitHeight="537.0" fitWidth="369.0" layoutX="20.0" layoutY="20.0" visible="false">
+               <image>
+                  <Image url="@bg.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec2e2e" height="411.0" layoutX="38.0" layoutY="62.0" opacity="0.56" stroke="WHITE" strokeDashOffset="20.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="20.0" strokeWidth="20.0" style="-fx-fill: #ec2e2e;" width="308.0" />
+            <Text fx:id="game_status" fill="WHITE" layoutX="80.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER!" wrappingWidth="228.39996337890636">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Text>
+            <Text layoutX="132.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCORE" wrappingWidth="119.09278869628906">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text fx:id="over_score" layoutX="167.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="48.88873291015625">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text fx:id="best_score" layoutX="168.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="52.970306396484375">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="150.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BEST" wrappingWidth="82.35806274414062">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="63.0" fitWidth="66.0" layoutX="65.0" layoutY="391.0">
+               <image>
+                  <Image url="@home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="63.0" fitWidth="66.0" layoutX="161.0" layoutY="391.0">
+               <image>
+                  <Image url="@save.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="63.0" fitWidth="54.0" layoutX="254.0" layoutY="391.0">
+               <image>
+                  <Image url="@reload.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="restart_button" layoutX="254.0" layoutY="391.0" mnemonicParsing="false" onAction="#restart" opacity="0.0" prefHeight="63.0" prefWidth="53.0" text="Restart_button" />
+            <Button fx:id="load_button" layoutX="162.0" layoutY="391.0" mnemonicParsing="false" onAction="#load" opacity="0.0" prefHeight="63.0" prefWidth="65.0" text="save_button" />
+            <Button fx:id="home_button" layoutX="65.0" layoutY="391.0" mnemonicParsing="false" onAction="#exit" opacity="0.0" prefHeight="63.0" prefWidth="65.0" text="home_button" />
+            </children>
+        </Group>
+        <Group fx:id="paused_group" layoutX="-7.0" layoutY="78.0" visible="false">
+            <children>
+            <Button layoutX="6.0" layoutY="3.0" mnemonicParsing="false" opacity="0.0" prefHeight="537.0" prefWidth="369.0" text="Button" />
+            <Text layoutX="116.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAUSED">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="48.0" fitWidth="62.0" layoutX="75.0" layoutY="132.0">
+               <image>
+                  <Image url="@play.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="58.0" fitWidth="62.0" layoutX="163.0" layoutY="127.0">
+               <image>
+                  <Image url="@speaker.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="58.0" fitWidth="78.0" layoutX="252.0" layoutY="127.0">
+               <image>
+                  <Image url="@save.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="117.0" layoutY="262.0" mnemonicParsing="false" onAction="#restart" prefHeight="58.0" prefWidth="154.0" style="-fx-background-color: #90EE90;" text="RESTART">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button layoutX="112.0" layoutY="343.0" mnemonicParsing="false" onAction="#exit" prefHeight="53.0" prefWidth="164.0" style="-fx-background-color: #FF0000;" text="EXIT GAME">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="74.0" layoutY="129.0" mnemonicParsing="false" onAction="#resume_game" opacity="0.0" prefHeight="54.0" prefWidth="62.0" text="resume_pause_button" />
+            <Button layoutX="164.0" layoutY="127.0" mnemonicParsing="false" onAction="#toggle_sound" opacity="0.0" prefHeight="58.0" prefWidth="62.0" text="toggle_sound" />
+            <Button layoutX="252.0" layoutY="127.0" mnemonicParsing="false" onAction="#save" opacity="0.0" prefHeight="57.0" prefWidth="77.0" text="resume_pause_button" />
+            </children>
+        </Group>
+          <ImageView fitHeight="48.0" fitWidth="52.0" layoutX="271.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@cherry.png" />
+              </image>
+          </ImageView>
+          <Text fx:id="cherry_text" fill="#333333" layoutX="327.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="35.200000000000045">
+              <font>
+                  <Font size="33.0" />
+              </font>
+          </Text>
+      <Button fx:id="pause_button" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#pause_game" prefHeight="43.0" prefWidth="69.0" style="-fx-background-color: #FFFF00;" text="PAUSE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="154.0" layoutY="24.0" prefHeight="43.0" prefWidth="89.0" text="SCORE" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="24.0" />
+         </font>
+      </Label>
+      <Text fx:id="Score_text" layoutX="168.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="75.85626220703125">
+         <font>
+            <Font size="68.0" />
+         </font>
+      </Text>
+
+    </children>
+</AnchorPane>
